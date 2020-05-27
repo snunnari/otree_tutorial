@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+<!--Still, this is only the html structure. Divs can and should be personalized using the tag <style></style> or a separate css file.-->
+<!--Below is the minimum styling required to ensure everything is displayed properly.-->
+<!--If you think you will use this code frequently, consider integrating it in either Base or Page.-->
+
+
+{% block styles %}
+<style>
+/* Table */
+/* If you have a particularly large table, consider using "overflow-x" (as indicated below) */
+/* overflow-x allows to scroll the table horizontally if the table exceeds the window's width */
+.table {
+    font-size: 1rem; /* for a smaller font in tables */
+    overflow-x: scroll;  /* "scroll" generates a scrollbar to scroll table horizontally */
+}
+
+table {
+    margin: 2rem auto 2rem auto;
+   /* border: 1px solid rgba(0,0,0,.125); */
+}
+
+td {
+    border: 1px solid rgba(0,0,0,.125);
+    text-align: center;
+    vertical-align: middle;
+    min-width: 90px; /* only to show "overflow-x" property */
+}
+</style>
+{% endblock %}
+
+
+{% block title %}
+    Template Page
+{% endblock %}
+
+
+{% block content %}
+<p>
+    You can put here some text for the task or question to be answered.
+    Again, the text inserted here is responsive, meaning that its width scales with screen width.
+</p>
+
+<p>
+    If you check the html code, you will see that also here we customized some of the page elements in the style block.
+    Specifically, we set style for the table container and table cells.
+</p>
+
+<p>
+    The table below is too large fit the screen. Hence, we use "overflow-x:scroll" property.
+    Now we have a scroll bar that allows us to scroll its content horizontally.
+</p>
+
+
+<!--Minimal table-->
+<div class="table">
+    <table>
+        <tr>
+            {% for i in Constants.indices %}
+        <td>cell {{i}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+<p>As you can see, we also included the Instructions to be displayed.</p>
+<p>Remind that the vertical spacing is controlled through the padding in class "page-header" in style.css.</p>
+{% include "mock_app/Text.html" %}
+
+{% next_button %}
+
+{% endblock %}

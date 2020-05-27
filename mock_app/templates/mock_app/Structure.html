@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+The above blocks are inserted by default.
+The block "extends "global/Page.html"" calls a template html document (Page.html) that is used to model pages of the App.
+
+This means that this page can be customized with the features we would like our html pages to have.
+For example, we can add a section to style the various elements, such as the position of buttons and titles.
+If you check "_templates/global/Page.html", you will see that in the styles block we added
+<!--<link href="{% static 'global\style.css' %}" rel="stylesheet">-->.
+If you check "_static/global/style.css", you will see what elements have been customized and how.
+
+Page.html calls another page that is extended in a similar fashion: Base.html.
+Hence, "Mypage.html" (oTree App page) extends "global/Page.html", that extends "global/Base.html".
+Base.html can be found here: "External Libraries/Python 3.7/site-packages/otree/"
+Below an excerpt of Base.html, so to have an idea of what it contains:
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap-reboot.min.css' %}">
+    <link rel="stylesheet" href="{% static 'otree/css/theme.css' %}">
+
+    <script src="{% static 'otree/js/jquery-3.2.1.min.js' %}"></script>
+-->
+
+As you can see, this block is giving the html structure to every page.
+This html code will be present in any page that is created in oTree. Therefore, each page will have the typical html structure,
+even though we do not write the code in each.
+
+
+{% block content %}
+<h2>Structure</h2>
+
+<p>
+    Each html page extends a base template (named "Page.html"), which contains the base html structure of a page.
+    In fact, in each page you will find just the Django block that extends "global/Page.html",
+    without containing html code per se.
+    This is because the html code needed to structure a page is imported from Page.html.
+</p>
+<p>
+    If you inspect the present or any other oTree page on the browser (right-click -> inspect),
+    you will see that some html code has been rendered without it being present directly in the corresponding html file.
+    For example, the document begins with the tags "!DOCTYPE html", "html", "head", required to define a html document,
+    even though the html file in the App does not contain this code (you can check it in the file templates/mock_app/Structure.html).
+</p>
+
+<p>An implication of it is that you can customize the "source" page, i.e. Page.html, with the features you would like
+each html page to have. Page.html can be found inside the files of the App, at the path: "_templates/global/Page.html"
+</p>
+
+<p>
+    In this template App, Page.html has been modified so to include a basic .css file to style the main elements of each page,
+    such as the position of titles and "next" button. For details, look at "style.css" in "_static/global".
+    Of course, these settings can be overwritten in each html page, if needed.
+</p>
+
+
+{% next_button %}
+
+{% endblock %}

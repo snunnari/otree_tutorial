@@ -1,0 +1,29 @@
+/*  This ensures main titles are centered horizontally */
+.h1, h2 {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+/*  This controls containers. As argued above, affects also "otree-body container" */
+/*  If other containers are created, use ids or classes to personalize containers separately */
+.container {
+    max-width: 768px;
+    text-align: justify;
+    font-size: 1.2rem;
+}
+
+/*  This controls the style of "next" button. */
+.otree-btn-next {
+    margin: 2rem auto;
+    display: inherit; /* This centers the "next" button horizontally */
+}
+
+/* This controls the top part of each page */
+/* It is useful to remove some white space when a page is included in another one,
+    such as when Instructions are displayed in other pages. */
+.page-header {
+    margin: 40px 0 40px;
+    padding: 0;  /* this setting removes the white space mentioned above */
+    border-bottom: none;
+    text-align:center;
+}

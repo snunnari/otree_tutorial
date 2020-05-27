@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style>
+    .instructions {
+    max-width: 768px;
+    height: 100%;
+    background: rgba(255,255,245,0.25);
+    margin: 40px auto;
+    padding: 20px 20px 10px 20px;
+    font-size: 1.2rem;
+
+    position:relative;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+    -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.05) inset;
+
+  -moz-border-radius: 5px;
+       border-radius: 5px;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="instructions">
+    <h2>Instructions</h2>
+    <p>Before we move on, remember that you can display Instructions.</p>
+    <p>
+        If you like this box, check again the style block of this html page to see how it is done.
+        Notice also that we chose to customize this element in the very same html page,
+        instead of doing it in the global css file. Still, nothing prevents us to do it in the global css file.
+    </p>
+
+    <p>You can also include Instructions in other pages,
+        to make sure your participants do not forget what to do or what the rules are.</p>
+    <p>In order to to this, you have to: </p>
+    <ol>
+    <li>Create the page of instructions to be inserted (here we chose "Text.html")</li>
+    <li>Create a block "include", by writing {+% include "name_app/name_page_to_include.html" %+},
+        without the "+" symbols (for us, it will be: "mock_app/Text.html")</li>
+</ol>
+</div>
+
+{% endblock %}

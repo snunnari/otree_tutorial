@@ -1,0 +1,66 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+As anticipated below, each oTree page extends "global/Page.html", that extends "global/Base.html".
+Below an excerpt of Base.html, so to have an idea of what it contains:
+
+Among other things, Base.html contains the meta tag
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+and link to bootstrap css
+<!--<link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css' %}">-->
+This means that oTree comes with Bootstrap 4 and that its Apps are responsive, by default.
+
+The css files of Bootstrap are in the local folder: "External Libraries/Python 3.7/site-packages/otree/static/bootstrap4/css/".
+Similarly, oTree specific css can be found here: "External Libraries/Python 3.7/site-packages/otree/static/otree/css/"
+These files should NOT be modified, rather overwritten either in the global style.css mentioned above, or
+directly in the App html page through the tags <!--<style></style>-->, or both.
+
+oTree classes mirror those of Bootstrap 4. Specifically:
+* "otree-body" is the equivalent of "body"
+* "container" is a general container
+* By default, the main container of a page is "otree-body container", which takes the values of both the above classes
+* "otree-btn-next" is the equivalent of "btn-next"; it manages the next button
+
+Divs using these classes are automatically created with the App page.
+The html code responsible for this is contained in Page.html, mentioned above.
+Below, a short excerpt of Page.html:
+
+<!--
+<div class="otree-body container">
+        <h2 class="otree-title page-header">...</h2>
+            <div class="otree-form-errors alert alert-danger">
+-->
+
+This means that any App page will contain both the code of Base.html (specifically, html structure and link to bootstrap),
+a div of class "otree-body container", and a button of class "otree-btn-next", needed to advance to the subsequent page.
+
+{% block content %}
+
+<h2>Integration with Bootstrap</h2>
+<p>
+    If we inspect the html of this or any other page, we will see that the code links to a boostrap css file
+    (see the file /templates/mock_app/Bootstrap.html for details).
+    This means that oTree is natively integrated with Bootstrap 4.
+</p>
+
+<p>Specifically, it implies that oTree:</p>
+<ol>
+    <li>is natively responsive, i.e. its elements scale with screen width</li>
+    <li>supports built-in Bootstrap classes ("container", "btn-primary", etc.)</li>
+</ol>
+
+<p>For example, if you try to resize this page, you will see that this content shrinks to fit the screen width.</p>
+<p>
+    If you inspect the code of this page, you will see that the content of this page has been encapsulated
+    into a div of class "otree-body container". This occurs by default, and serves as the html body.
+    The class "container" is one of the main classes of bootstrap, and is responsive by default.
+</p>
+
+<p>
+    Again, you should refer to the customization of this class in the file style.css.
+    But you can also customize it in the html code of the page of interest, as will be shown in a second.
+</p>
+
+{% next_button %}
+
+{% endblock %}

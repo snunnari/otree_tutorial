@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<h2>Welcome!</h2>
+<p>This is a template app. Here are covered some basics of oTree.</p>
+
+<p>
+    First of all, oTree is based on the Django framework.
+    As such, it contains the typical Django project files (models.py, urls.py, and various html pages or templates...).
+    Html pages are contained in the folder "name_app/templates".
+</p>
+
+{% next_button %}
+
+{% endblock %}
