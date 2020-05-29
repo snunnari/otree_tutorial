@@ -49,7 +49,7 @@ td {
 </p>
 
 <p>
-    The table below is too large fit the screen. Hence, we use "overflow-x:scroll" property.
+    The table below is too large fit the screen. Hence, we use "overflow-x:scroll" property (check style in html code).
     Now we have a scroll bar that allows us to scroll its content horizontally.
 </p>
 
@@ -66,7 +66,10 @@ td {
 </div>
 
 <p>As you can see, we also included the Instructions to be displayed.</p>
-<p>Remind that the vertical spacing is controlled through the padding in class "page-header" in style.css.</p>
+<p>Remind that the vertical spacing between the last element of the page (in this case, the table) and
+    the head of the page we just included (the Instructions) can be set through the padding in class "page-header" in style.css.
+</p>
+
 {% include "mock_app/Text.html" %}
 
 {% next_button %}
