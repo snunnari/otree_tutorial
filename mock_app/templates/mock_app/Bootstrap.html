@@ -1,6 +1,36 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+
+{% block styles %}
+<style>
+    /* Rows and Cols */
+    .row {
+        padding: 0.5em;
+        margin: 0.5em;
+        align-content: space-around;
+        border: 5px solid grey;
+    }
+    /* Columns */
+    /* "sm" stands for "small". It means that it will maintain its relative width also on small screens. */
+    /* "5" indicates the width in units. Total screen encompasses 12 units, so this column will take less than half width. */
+    .col-sm-5 {
+        border: 5px solid darkred;
+    }
+
+    /* Card deck */
+    /* Header */
+    .card-header {
+        text-align: center;
+    }
+
+    /* Title in card header */
+    .card-header>h5 {
+    margin: 0;
+    }
+</style>
+{% endblock %}
+
 As anticipated below, each oTree page extends "global/Page.html", that extends "global/Base.html".
 Below an excerpt of Base.html, so to have an idea of what it contains:
 
@@ -43,7 +73,10 @@ a div of class "otree-body container", and a button of class "otree-btn-next", n
     This means that oTree is natively integrated with Bootstrap 4.
 </p>
 
-<p>This implies two main things.</p>
+<br>
+
+<h5>Bootstrap and oTree</h5>
+<p>The integration with Bootstrap implies two main things.</p>
 <p> First, oTree is natively responsive, i.e. its elements scale with screen width.
     For example, if you try to resize this page, you will see that this content shrinks to fit the screen width.
 </p>
@@ -53,11 +86,78 @@ a div of class "otree-body container", and a button of class "otree-btn-next", n
     into a div of class "otree-body container". This occurs by default, and serves as the html body.
     The class "container" is one of the main classes of bootstrap, and is responsive by default.
 </p>
+<p>
+    Again, you should refer to the customization of "container" in the file _static/global/style.css.
+    However, you can also customize this and any other element in the html code of the page of interest,
+    through the "style" tag.
+</p>
+
+<br>
+
+<h5>Bootstrap grid system</h5>
+<p>
+    Other important built-in classes of Bootstrap that can be used in oTree are "row" and "col".
+    Rows and cols allow to have a better management of the space available,
+    and are particularly needed when using multiple containers, especially if aligned on the same row.
+</p>
+<p>
+    Rows and columns form what is called the "grid system".
+    Bootstrap subdivides a webpage into 12 columns.
+    Hence, if we want to include two columns, each column must take at most 6 "units" out of 12 (more details in
+    <a href="https://getbootstrap.com/docs/3.4/css/#grid-example-basic">this section</a>
+    of the official documentation of Bootstrap).
+</p>
+<p>
+    For example, below we included two containers on the same line.
+    We first created a "row" div (grey) and we included in it two "col-sm-5" divs (in red).
+    The class "col-sm-5" is one of the many classes for column, each with its own width and responsive behavior
+    (for details, check the "style" block of this html page or refer to the
+    <a href="https://getbootstrap.com/docs/3.4/css/#grid-options">official documentation</a>).
+</p>
+<p>
+    As explained above, the number expresses the column span, i.e. the units that it covers out of the 12 available.
+    Hence, "col-sm-5" will take a width lower than half (we did so to leave some room between the two containers).
+    The string "sm" (that stands for "small") determines the behavior of the column as screen width decreases.
+    For example, "sm" means each of the two columns will take 5 units only when screen width is equal or above 576px,
+    otherwise they align one below the other and take all available width.
+    You can check this behavior by resizing the width of this page.
+</p>
+
+<div class="row justify-content-around my-4">
+<!--"justify-content-around" aligns columns horizontally by leaving the same space between themselves and borders-->
+<!--"my-4" controls Margins on the Y-axis and assigns to it the value of "3"-->
+    <div class="col-sm-5">This column take 5 units out of 12 available for width.</div>
+    <div class="col-sm-5">This column take 5 units out of 12 available for width.</div>
+</div>
 
 <p>
-    Again, you should refer to the customization of this class in the file _static/global/style.css.
-    But you can also customize it in the html code of the page of interest, as will be shown in a second.
+    You can use columns to display information in the same row.
+    However, mind that a similar but nicer way of doing this is using a "card deck", another feature of Bootstrap
+    (<a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks">official documentation here</a>).
+    Below, we use a card deck to display fictional information about a player and her partner's behavior in an experiment.
+    Again, check the block style to see how we customized this element.
 </p>
+
+<div class="card-deck my-4">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Your performance</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Score: 5 points</p>
+            <p class="card-text">Time: 30 seconds</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Your partner's performance</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Score: 7 points</p>
+            <p class="card-text">Time: 45 seconds</p>
+        </div>
+    </div>
+</div>
 
 {% next_button %}
 

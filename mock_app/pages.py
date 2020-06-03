@@ -21,7 +21,7 @@ class Instructions(Page):
     pass
 
 
-class MyPage(Page):
+class Responsiveness(Page):
     pass
 
 
@@ -34,4 +34,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Welcome, Structure, Bootstrap, Instructions, MyPage]
+page_sequence = [Welcome, Structure, Bootstrap, Instructions, Responsiveness]

@@ -23,7 +23,7 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     # Generate the indices to unpack to generate table cells in the template
-    indices = [i for i in range(11)]
+    indices = [i for i in range(1, 11)]
 
 
 class Subsession(BaseSubsession):

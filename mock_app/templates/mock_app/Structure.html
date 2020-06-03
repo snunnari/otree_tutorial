@@ -33,14 +33,17 @@ even though we do not write the code in each.
 
 
 {% block content %}
-<h2>Structure</h2>
+<h2>Global templates</h2>
 
+<h5>Global page</h5>
 <p>
     Each html page extends a base template (named "Page.html"), which contains the base html structure of a page.
     In fact, in each page you will find just the Django block that extends "global/Page.html",
     without containing html code per se.
     This is because the html code needed to structure a page is imported from Page.html.
 </p>
+
+
 <p>
     If you inspect the present or any other oTree page on the browser (right-click -> inspect),
     you will see that some html code has been rendered without it being present directly in the corresponding html file.
@@ -52,6 +55,9 @@ even though we do not write the code in each.
 each html page to have. Page.html can be found inside the files of the App, at the path: "_templates/global/Page.html"
 </p>
 
+<br>
+
+<h5>Global style</h5>
 <p>
     In this template App, Page.html has been modified so to include a basic .css file to style the main elements of the page,
     such as the position of titles and "next" button (for details, look at "style.css" in "_static/global").

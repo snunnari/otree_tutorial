@@ -7,7 +7,7 @@
 /*  This controls containers. As argued above, affects also "otree-body container" */
 /*  If other containers are created, use ids or classes to personalize containers separately */
 .container {
-    max-width: 768px;
+    max-width: 888px;
     text-align: justify;
     font-size: 1.2rem;
 }

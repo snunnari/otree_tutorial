@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block styles %}
+<style>
+    /* Table */
+    /* If you have a particularly large table, consider using "overflow-x" (as indicated below) */
+    /* overflow-x allows to scroll the table horizontally if the table exceeds the window's width */
+    .table {
+        font-size: 1rem; /* for a smaller font in tables */
+        overflow-x: scroll;  /* "scroll" generates a scrollbar to scroll table horizontally */
+    }
+
+    table {
+        margin: 2rem auto 2rem auto;
+       /* border: 1px solid rgba(0,0,0,.125); */
+    }
+
+    td {
+        border: 1px solid rgba(0,0,0,.125);
+        text-align: center;
+        vertical-align: middle;
+        min-width: 90px; /* only to show "overflow-x" property */
+    }
+</style>
+{% endblock %}
+
+
+{% block title %}
+    Threats to Responsiveness
+{% endblock %}
+
+
+{% block content %}
+<p>There are only two cases where the content may not be responsive:</p>
+<ul>
+    <li>When minimum widths for containers/paragraphs are specified</li>
+    <li>When using particularly large tables</li>
+</ul>
+
+<br>
+
+<h5>Minimum Widths</h5>
+<div style="min-width:700px;">
+    <p>
+        The first case in which content may be not responsive is when a minimum width is specified (in absolute terms).
+        For example, this paragraph was put into a container whose "min-width" property is set on 700px.
+        If you try to resize the window below 700px, you will see that part of this paragraph will flow outside the window.
+    </p>
+</div>
+
+    <p>
+        Using minimum widths per se is not a problem if we can be confident that the window will not be resized
+        under a certain threshold (e.g., the task is performed under the supervision of the experimenter).
+        But in general, it may be wise either to use RELATIVE min-width (%) or not specify any min width altogether
+        (recall how the grid system works, as shown at page "Bootstrap.html").
+    </p>
+
+<br>
+
+<h5>
+    Large tables
+</h5>
+
+<p>
+    The second case in which some container or element may not be responsive is when the page displays a particularly large table,
+    i.e. a table that grows horizontally.
+</p>
+
+<p>
+    Below, we included an example of such a table. Its properties have been specified in the style block of this page
+    (check html code for details). In particular, we used the property "overflow-x:scroll".
+    This property generates a scroll bar to scroll table content horizontally.
+    Mind that the scroll bar will be visible only when the table width exceeds that of the screen.
+</p>
+
+<!--Minimal table-->
+<div class="table">
+    <table>
+        <tr>
+            {% for i in Constants.indices %}
+        <td>cell {{i}}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+
+<br>
+
+<h5>Inclusion of Instructions</h5>
+<p>As you can see, we also included the Instructions to be displayed.</p>
+<p>Remind that the vertical spacing between the last element of the page (in this case, the table) and
+    the head of the page we just included (the Instructions) can be set through the padding in class "page-header" in style.css.
+</p>
+
+{% include "mock_app/Text.html" %}
+
+{% next_button %}
+
+{% endblock %}
