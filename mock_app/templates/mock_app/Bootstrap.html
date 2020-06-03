@@ -19,7 +19,10 @@
     }
 
     /* Card deck */
-    /* Header */
+    .card-deck {
+        max-width: 768px;
+        margin:auto;
+    }
     .card-header {
         text-align: center;
     }
@@ -118,14 +121,14 @@ a div of class "otree-body container", and a button of class "otree-btn-next", n
     As explained above, the number expresses the column span, i.e. the units that it covers out of the 12 available.
     Hence, "col-sm-5" will take a width lower than half (we did so to leave some room between the two containers).
     The string "sm" (that stands for "small") determines the behavior of the column as screen width decreases.
-    For example, "sm" means each of the two columns will take 5 units only when screen width is equal or above 576px,
-    otherwise they align one below the other and take all available width.
+    For example, a "sm" column covers 5 units only when screen width is equal or above 576px,
+    otherwise it takes all available width. This also implies that our two columns will align one above the other.
     You can check this behavior by resizing the width of this page.
 </p>
 
-<div class="row justify-content-around my-4">
+<div class="row justify-content-around my-5">
 <!--"justify-content-around" aligns columns horizontally by leaving the same space between themselves and borders-->
-<!--"my-4" controls Margins on the Y-axis and assigns to it the value of "3"-->
+<!--"my-5" controls Margins on the Y-axis and assigns to it the value of "5" (one of preset sizes)-->
     <div class="col-sm-5">This column take 5 units out of 12 available for width.</div>
     <div class="col-sm-5">This column take 5 units out of 12 available for width.</div>
 </div>
@@ -138,14 +141,14 @@ a div of class "otree-body container", and a button of class "otree-btn-next", n
     Again, check the block style to see how we customized this element.
 </p>
 
-<div class="card-deck my-4">
+<div class="card-deck my-5">
     <div class="card">
         <div class="card-header">
             <h5 class="card-title">Your performance</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Score: 5 points</p>
-            <p class="card-text">Time: 30 seconds</p>
+            <p class="card-text"><strong>Score</strong>: 5 points</p>
+            <p class="card-text"><strong>Time</strong>: 30 seconds</p>
         </div>
     </div>
     <div class="card">
@@ -153,8 +156,8 @@ a div of class "otree-body container", and a button of class "otree-btn-next", n
             <h5 class="card-title">Your partner's performance</h5>
         </div>
         <div class="card-body">
-            <p class="card-text">Score: 7 points</p>
-            <p class="card-text">Time: 45 seconds</p>
+            <p class="card-text"><strong>Score</strong>: 7 points</p>
+            <p class="card-text"><strong>Time</strong>: 45 seconds</p>
         </div>
     </div>
 </div>

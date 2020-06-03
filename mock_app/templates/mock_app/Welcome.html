@@ -6,10 +6,34 @@
 <p>This is a template app. Here are covered some basics of oTree.</p>
 
 <p>
-    First of all, oTree is based on the Django framework.
-    As such, it contains the typical Django project files (models.py, urls.py, and various html pages or templates...).
-    Html pages are contained in the folder "name_app/templates".
+    First of all, oTree is based on the Django framework
+    (<a href="https://docs.djangoproject.com/en/3.0/">official documentation here</a>).<br>
+    Therefore, any oTree App will be based the typical Django project files.
 </p>
+
+<br>
+
+<p>Specifically, any App will contain:</p>
+<ul>
+    <li>A "models.py" file, where code for the main classes (Constants, Session, Player, Groups) is written;
+    unlike the typical Django App, code for Pages is contained in "pages.py".</li>
+    <li>Various "templates" files, that are the html pages to be shown on the browser;
+        html pages/templates are contained in the folder "name_app/templates".</li>
+</ul>
+
+<br>
+<p>Any App is contained in a project. Among the project folders and files, we find:</p>
+<ul>
+    <li>A "urls.py" file, that in a Django project specifies the addresses of all resources needed for the project
+        (in oTree, this will be managed automatically, thus no intervention is needed).</li>
+    <li>A "settings.py" file, where each App of the project must be manually listed, together with its settings.</li>
+    <li>A "_static" and "_templates" folder, where global templates (html) and styles (css) can be stored
+    and retrieved once an App page is created.</li>
+</ul>
+
+<br>
+
+<p>In the next page, we start by will discussing how global templates and styles work.</p>
 
 {% next_button %}
 

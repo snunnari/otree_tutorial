@@ -14,7 +14,7 @@
 
 /*  This controls the style of "next" button. */
 .otree-btn-next {
-    margin: 2rem auto;
+    margin: 3rem auto;
     display: inherit; /* This centers the "next" button horizontally */
 }
 
